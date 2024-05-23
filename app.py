@@ -72,3 +72,5 @@ def contact_us():
 @app.route('/startup', methods=['GET', 'POST'])
 def startup():
     return render_template('opening.html')
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=81)
