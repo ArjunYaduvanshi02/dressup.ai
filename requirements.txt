@@ -1,2 +1,6 @@
 flask
 gunicorn
+pillow
+request
+io
+os
