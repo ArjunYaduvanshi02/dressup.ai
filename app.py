@@ -53,9 +53,9 @@ def generate_image(prop):
             image_bytes = query({"inputs": user_input})
             image = PIL.Image.open(io.BytesIO(image_bytes))
             image_path = "image" + str(i) + ".jpg"
-            image.save("C:/GridFlip/static/images/" + image_path)
+            image.save("./static/images/" + image_path)
             print(f"Image saved as {image_path}")
-            save_database("C:/GridFlip/static/images/" + image_path, prop)
+            save_database("./static/images/" + image_path, prop)
         except Exception as e:
             return str(e)
     for i in range(1,9):
