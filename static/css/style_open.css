@@ -44,7 +44,6 @@ body.fade-out {
 }
 @media (max-aspect-ratio:16/9){
     .background-clip{
-    
     height: 100%;
     }
 }
