@@ -10,32 +10,7 @@ API_TOKEN = "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"
 API_URL = "https://api-inference.huggingface.co/models/runwayml/stable-diffusion-v1-5"
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
 app = Flask(__name__)
-def save_database(image,text_data):
-    def convert_image_into_binary(filename):
-        with open(filename, 'rb') as file:
-            photo_image = file.read()
-        return photo_image
 
-    def insert_image(image):
-        image_database = sqlite3.connect("./database/Image_data.db")
-        data = image_database.cursor()
-        insert_photo = convert_image_into_binary(image)
-        data.execute("INSERT INTO Image (Image, text_feature) VALUES (:image, :text)", {'image': insert_photo, 'text': text_data})
-
-        image_database.commit()
-        image_database.close()
-
-    def create_database():
-        image_database = sqlite3.connect("./database/Image_data.db")
-        data = image_database.cursor()
-        data.execute("CREATE TABLE IF NOT EXISTS Image(Image BLOB)")
-        image_database.commit()
-        image_database.close()
-    try:
-        create_database()
-        insert_image(image)
-    except Exception as e:
-        return str(e)
 def generate_image(prop):
     def generate(user_input):
         def uniquify(path):
@@ -55,7 +30,6 @@ def generate_image(prop):
             image_path = "image" + str(i) + ".jpg"
             image.save("./static/images/" + image_path)
             print(f"Image saved as {image_path}")
-            save_database("./static/images/" + image_path, prop)
         except Exception as e:
             return str(e)
     for i in range(1,9):
