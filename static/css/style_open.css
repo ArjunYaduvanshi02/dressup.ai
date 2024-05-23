@@ -11,6 +11,32 @@ body {
   height: 100vh;
   background-color: rgba(0,0,0,0.4)
 }
+@media screen and (orientation: portrait) {
+    /* Styles for portrait mode */
+    .landscape-notice {
+        display: block;
+        /* Add styles to cover the screen and prompt the user to rotate */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        color: black;
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    /* Styles for landscape mode */
+    .landscape-notice {
+        display: none;
+    }
+}
 body.fade-out {
   opacity: 0;
 }
