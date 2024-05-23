@@ -8,9 +8,9 @@
 
 </head>
 <body>
-<video autoplay playsinline muted loop class="background-clip">
-  <source src="./static/images/opening_bg.mp4" type="video/mp4">
-</video>
+<div class="landscape-notice">
+    For the best experience, please rotate your device to landscape mode.
+</div>
 <a href="{{ url_for('read_more_func') }}">
 <div class="card">
   <div class="fold"></div>
@@ -32,6 +32,21 @@ window.addEventListener('beforeunload', function() {
 window.addEventListener('load', function() {
   document.body.style.opacity = 1;
 });
+function checkOrientation() {
+    if (window.innerHeight > window.innerWidth) {
+        // Device is in portrait mode
+        document.querySelector('.landscape-notice').style.display = 'flex';
+    } else {
+        // Device is in landscape mode
+        document.querySelector('.landscape-notice').style.display = 'none';
+    }
+}
+
+window.addEventListener('resize', checkOrientation);
+window.addEventListener('orientationchange', checkOrientation);
+
+// Initial check
+checkOrientation();
 
   </script>
 </body>
