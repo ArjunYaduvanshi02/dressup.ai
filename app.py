@@ -27,7 +27,7 @@ def generate_image(prop):
         try:
             image_bytes = query({"inputs": user_input})
             image = PIL.Image.open(io.BytesIO(image_bytes))
-            image_path = "image" + str(i) + ".jpg"
+            image_path = "image" + str(i) + ".png"
             image.save("./static/images/" + image_path)
             print(f"Image saved as {image_path}")
         except Exception as e:
