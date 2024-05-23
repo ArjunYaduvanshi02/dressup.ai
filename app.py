@@ -34,6 +34,7 @@ def generate_image(prop):
             return str(e)
     for i in range(1,9):
            generate(str(prop)+ "outfit" + str(i))
+    return render_template('index.html')
 
 @app.route('/')
 def index():
