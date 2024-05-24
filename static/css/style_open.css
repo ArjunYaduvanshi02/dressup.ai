@@ -32,6 +32,9 @@ body.fade-out {
   width: 41vw;
 
 }
+.card:focus {
+            outline: none;
+        }
 .background-clip{
     position: fixed;
     right: 0;
