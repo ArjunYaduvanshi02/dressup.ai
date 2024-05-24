@@ -27,7 +27,7 @@ def generate_image(prop):
         try:
             image_bytes = query({"inputs": user_input})
             image = PIL.Image.open(io.BytesIO(image_bytes))
-            image_path = "image" + str(i) + ".png"
+            image_path = "image" + str(i) + ".jpg"
             image.save("./static/images/" + image_path)
             print(f"Image saved as {image_path}")
         except Exception as e:
@@ -48,7 +48,7 @@ def fetch():
         req = request.form['search_bttn']
         print(req)
         generate_image(req)
-        return render_template('index.html')
+        return render_template('index2.html')
     except Exception as e:
         return str(e)
 @app.route('/form_send',methods=['POST','GET'])
