@@ -24,17 +24,16 @@ def generate_image(prop):
         def query(payload):
             response = requests.post(API_URL, headers=headers, json=payload)
             return response.content
-        try:
-            image_bytes = query({"inputs": user_input})
-            image = PIL.Image.open(io.BytesIO(image_bytes))
-            image_path = "image" + str(i) + ".jpg"
-            image.save("./static/images/" + image_path)
-            print(f"Image saved as {image_path}")
-        except Exception as e:
-            return str(e)
+
+        image_bytes = query({"inputs": user_input})
+        image = PIL.Image.open(io.BytesIO(image_bytes))
+        image_path = "image" + str(i) + ".jpg"
+        image.save("./static/images/" + image_path)
+        print(f"Image saved as {image_path}")
+
     for i in range(1,9):
            generate(str(prop)+ "outfit" + str(i))
-    return render_template('index.html')
+
 
 @app.route('/')
 def index():
