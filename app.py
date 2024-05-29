@@ -58,7 +58,7 @@ def Send():
     print(send_user,send_gmail,send_mess)
     send = "project.feedback.02@gmail.com"
     rec = "project.feedback.02@gmail.com"
-    pas = "cmio eaap ofes wlwi"
+    pas = "pcsk qljb vfiq tdau"
     message = f"Subject: {send_gmail}\n\nMR/MRS {send_user} messaged you: {send_mess}"
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
